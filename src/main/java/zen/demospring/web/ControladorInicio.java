@@ -25,7 +25,7 @@ public class ControladorInicio {
     public String inicio(Model model) {
 
         var usuarios = usuarioService.listarUsuario();
-        model.addAttribute("usuario", usuarios);
+        model.addAttribute("usuarios", usuarios);
         return "index";
     }
 

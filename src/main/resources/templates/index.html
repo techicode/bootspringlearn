@@ -10,7 +10,7 @@
     <a th:href="@{/agregar}">Crear Usuario</a>
     <br>
     <br>
-    <div th:if="${usuario != null}">
+    <div th:if="${usuarios != null}">
         <table>
             <tr>
                 <th>Nombre</th>
@@ -20,17 +20,17 @@
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
-            <tr th:each="usuario : ${usuario}">
+            <tr th:each="usuario : ${usuarios}">
                 <td th:text="${usuario.rut}"></td>
                 <td th:text="${usuario.nombre}"></td>
                 <td th:text="${usuario.edad}"></td>
                 <td th:text="${usuario.telefono}"></td>
-                <td> <a th:href="@{/editar/} + ${usuario.rut}" th:text="Editar"></a> </td>
+                <td> <a th:href="@{/editar(rut=${usuario.rut})}" th:text="Editar"></a> </td>
                 <td> <a th:href="@{/eliminar(rut=${usuario.rut})}" th:text="Eliminar"></a> </td>
             </tr>
         </table>
     </div>
-    <div th:if="${usuario == null}">
+    <div th:if="${usuarios == null}">
         La lista de persona esta vacia.
     </div>
     <footer th:replace="layout/plantilla :: footer"></footer>
